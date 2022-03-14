@@ -17,8 +17,14 @@ class EnderecoController extends Controller
         
         $cep = $request->input('cep');
         $response = Http::get("https://viacep.com.br/ws/$cep/json/")->json();
-        dd($response);
 
+        return view('adicionar')->with([
+            'cep' => $request->input('cep'),
+            'logradouro' => $response['logradouro'],
+            'bairro' => $response['bairro'],
+            'cidade' => $response['cidade'],
+            'estado' => $response['estado'],
+        ]);
     }
 
 }
