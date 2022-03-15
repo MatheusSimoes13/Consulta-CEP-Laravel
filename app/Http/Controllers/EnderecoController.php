@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Endereco\SalvarRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -22,9 +23,15 @@ class EnderecoController extends Controller
             'cep' => $request->input('cep'),
             'logradouro' => $response['logradouro'],
             'bairro' => $response['bairro'],
-            'cidade' => $response['cidade'],
-            'estado' => $response['estado'],
+            'cidade' => $response['localidade'],
+            'estado' => $response['uf'],
         ]);
+    }
+
+    public function salvar(SalvarRequest $request){
+       
+        dd($request->all());
+
     }
 
 }
