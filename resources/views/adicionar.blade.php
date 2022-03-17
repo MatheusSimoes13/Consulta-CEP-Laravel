@@ -40,5 +40,6 @@
           <input type="text" class="form-control" name="estado" value="{{$estado}}">
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
+        
       </form>
 @endsection
